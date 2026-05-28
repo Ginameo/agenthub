@@ -139,7 +139,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('all')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'all'
-                ? 'bg-orange-500 text-white'
+                ? 'bg-white text-black'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -149,7 +149,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('active')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'active'
-                ? 'bg-orange-500 text-white'
+                ? 'bg-white text-black'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -159,7 +159,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('solidity')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'solidity'
-                ? 'bg-orange-500 text-white'
+                ? 'bg-white text-black'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -169,7 +169,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('python')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'python'
-                ? 'bg-orange-500 text-white'
+                ? 'bg-white text-black'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -179,7 +179,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('writing')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'writing'
-                ? 'bg-orange-500 text-white'
+                ? 'bg-white text-black'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -190,7 +190,7 @@ export default function AgentsPage() {
         {/* Agent Grid */}
         {loading ? (
           <div className="text-center py-20">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -7,9 +7,9 @@
   --bg-secondary: #0a0a0a;
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
-  --accent-orange: #f97316;
-  --accent-amber: #f59e0b;
-  --accent-pink: #ff64bd;
+  --accent-silver: #c0c0c0;
+  --accent-white: #ffffff;
+  --accent-gray: #6b7280;
   --border-subtle: #1a1a1a;
 }
 
@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-primary), var(--accent-orange));
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-silver));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -59,8 +59,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Button styles */
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-orange), var(--accent-amber));
-  color: white;
+  background: linear-gradient(135deg, #ffffff, #e5e5e5);
+  color: #000000;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -72,7 +72,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #f5f5f5, #d4d4d4);
 }
 
 .btn-secondary {
@@ -88,8 +89,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:hover {
-  border-color: var(--accent-orange);
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.2);
+  border-color: var(--accent-silver);
+  box-shadow: 0 0 20px rgba(192, 192, 192, 0.15);
 }
 
 /* Card styles */
@@ -102,8 +103,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card:hover {
-  border-color: var(--accent-orange);
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.2), inset 0 0 20px rgba(249, 115, 22, 0.05);
+  border-color: var(--accent-silver);
+  box-shadow: 0 0 20px rgba(192, 192, 192, 0.1), inset 0 0 20px rgba(192, 192, 192, 0.03);
 }
 
 /* Input styles */
@@ -120,8 +121,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .input:focus {
   outline: none;
-  border-color: var(--accent-orange);
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+  border-color: var(--accent-silver);
+  box-shadow: 0 0 0 3px rgba(192, 192, 192, 0.1);
 }
 
 .input::placeholder {
@@ -135,9 +136,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 600;
-  background: rgba(249, 115, 22, 0.1);
-  color: var(--accent-orange);
-  border: 1px solid rgba(249, 115, 22, 0.2);
+  background: rgba(192, 192, 192, 0.1);
+  color: var(--accent-silver);
+  border: 1px solid rgba(192, 192, 192, 0.2);
 }
 
 .badge-success {

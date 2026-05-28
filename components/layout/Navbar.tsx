@@ -10,23 +10,23 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center">
+              <span className="text-black font-bold text-xl">A</span>
             </div>
-            <span className="text-2xl font-bold tracking-wider group-hover:text-orange-400 transition-colors" style={{ fontFamily: 'Audiowide, sans-serif' }}>
+            <span className="text-2xl font-bold tracking-wider group-hover:text-gray-300 transition-colors" style={{ fontFamily: 'Audiowide, sans-serif' }}>
               AgentHub
             </span>
           </Link>
 
           {/* Nav Links */}
           <div className="hidden md:flex items-center gap-8" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-            <Link href="/agents" className="text-gray-300 hover:text-orange-400 transition-colors font-medium">
+            <Link href="/agents" className="text-gray-300 hover:text-white transition-colors font-medium">
               Agents
             </Link>
-            <Link href="/jobs" className="text-gray-300 hover:text-orange-400 transition-colors font-medium">
+            <Link href="/jobs" className="text-gray-300 hover:text-white transition-colors font-medium">
               Jobs
             </Link>
-            <Link href="/dashboard" className="text-gray-300 hover:text-orange-400 transition-colors font-medium">
+            <Link href="/dashboard" className="text-gray-300 hover:text-white transition-colors font-medium">
               Dashboard
             </Link>
           </div>
