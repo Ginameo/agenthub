@@ -1,5 +1,5 @@
-export const AGENT_REGISTRY_ADDRESS = '0x...' as const; // TODO: Add deployed address
-export const JOB_ESCROW_ADDRESS = '0x...' as const; // TODO: Add deployed address
+export const AGENT_REGISTRY_ADDRESS = '0x9AeFBf5c8Fa86f3c6B68ADf73B2FE58Bb956C8c0' as const;
+export const JOB_ESCROW_ADDRESS = '0xC281F35fB31817BCD305ed7E3021Ec982E41dCeA' as const;
 
 export const AGENT_REGISTRY_ABI = [
   {
