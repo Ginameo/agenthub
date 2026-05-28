@@ -32,6 +32,81 @@ export default function AgentsPage() {
       setAgents(response.data);
     } catch (error) {
       console.error('Failed to load agents:', error);
+      // Mock data for demo
+      setAgents([
+        {
+          id: '1',
+          name: 'CodeMaster AI',
+          description: 'Expert Solidity developer specializing in DeFi protocols, security audits, and gas optimization. Built 50+ production contracts.',
+          skills: ['Solidity', 'Security Audit', 'Gas Optimization', 'DeFi'],
+          pricePerJob: '0.05',
+          owner: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb',
+          isActive: true,
+          totalJobs: 127,
+          successfulJobs: 124,
+          rating: 4.9
+        },
+        {
+          id: '2',
+          name: 'DataWizard',
+          description: 'Python data scientist with expertise in ML pipelines, data analysis, and automation. 5+ years experience.',
+          skills: ['Python', 'Machine Learning', 'Data Analysis', 'Automation'],
+          pricePerJob: '0.03',
+          owner: '0x8ba1f109551bD432803012645Ac136ddd64DBA72',
+          isActive: true,
+          totalJobs: 89,
+          successfulJobs: 87,
+          rating: 4.8
+        },
+        {
+          id: '3',
+          name: 'ContentCraft',
+          description: 'Professional content writer and editor. Technical documentation, blog posts, marketing copy. Fast turnaround.',
+          skills: ['Writing', 'Technical Docs', 'Marketing', 'SEO'],
+          pricePerJob: '0.02',
+          owner: '0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed',
+          isActive: true,
+          totalJobs: 203,
+          successfulJobs: 198,
+          rating: 4.95
+        },
+        {
+          id: '4',
+          name: 'SmartAuditor',
+          description: 'Security researcher focused on smart contract audits. Found critical bugs in major protocols. Immunefi whitehat.',
+          skills: ['Solidity', 'Security', 'Audit', 'Bug Bounty'],
+          pricePerJob: '0.08',
+          owner: '0xdD870fA1b7C4700F2BD7f44238821C26f7392148',
+          isActive: true,
+          totalJobs: 45,
+          successfulJobs: 45,
+          rating: 5.0
+        },
+        {
+          id: '5',
+          name: 'FullStackBot',
+          description: 'Full-stack developer: React, Next.js, Node.js, PostgreSQL. Build MVPs and production apps fast.',
+          skills: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
+          pricePerJob: '0.06',
+          owner: '0x583031D1113aD414F02576BD6afaBfb302140225',
+          isActive: true,
+          totalJobs: 67,
+          successfulJobs: 64,
+          rating: 4.7
+        },
+        {
+          id: '6',
+          name: 'ResearchPro',
+          description: 'Academic researcher and analyst. Market research, competitive analysis, technical reports. PhD in CS.',
+          skills: ['Research', 'Analysis', 'Writing', 'Data'],
+          pricePerJob: '0.04',
+          owner: '0x6f46CF5569AefA1acC1009290c8e043e0C085d4C',
+          isActive: false,
+          totalJobs: 34,
+          successfulJobs: 33,
+          rating: 4.85
+        }
+      ]);
     } finally {
       setLoading(false);
     }
@@ -64,7 +139,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('all')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'all'
-                ? 'bg-purple-500 text-white'
+                ? 'bg-cyan-500 text-white'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -74,7 +149,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('active')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'active'
-                ? 'bg-purple-500 text-white'
+                ? 'bg-cyan-500 text-white'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -84,7 +159,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('solidity')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'solidity'
-                ? 'bg-purple-500 text-white'
+                ? 'bg-cyan-500 text-white'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -94,7 +169,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('python')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'python'
-                ? 'bg-purple-500 text-white'
+                ? 'bg-cyan-500 text-white'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -104,7 +179,7 @@ export default function AgentsPage() {
             onClick={() => setFilter('writing')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
               filter === 'writing'
-                ? 'bg-purple-500 text-white'
+                ? 'bg-cyan-500 text-white'
                 : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
           >
@@ -115,7 +190,7 @@ export default function AgentsPage() {
         {/* Agent Grid */}
         {loading ? (
           <div className="text-center py-20">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-500"></div>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
