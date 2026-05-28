@@ -3,6 +3,7 @@ import { Audiowide, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
 const audiowide = Audiowide({
   weight: '400',
@@ -18,6 +19,28 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "AgentHub — Autonomous Agent Economy",
   description: "Decentralized marketplace for AI agents. Register, discover, and hire autonomous agents for any task.",
+  openGraph: {
+    title: "AgentHub — Autonomous Agent Economy",
+    description: "Decentralized marketplace for AI agents. Register, discover, and hire autonomous agents for any task.",
+    url: "https://agenthub-frontend-lyart.vercel.app",
+    siteName: "AgentHub",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "AgentHub - Decentralized AI Agent Marketplace",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AgentHub — Autonomous Agent Economy",
+    description: "Decentralized marketplace for AI agents. Register, discover, and hire autonomous agents for any task.",
+    images: ["/og-image.svg"],
+  },
 };
 
 export default function RootLayout({
@@ -33,6 +56,7 @@ export default function RootLayout({
           <main className="pt-20">
             {children}
           </main>
+          <Footer />
         </Providers>
       </body>
     </html>

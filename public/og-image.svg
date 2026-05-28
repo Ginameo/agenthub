@@ -1,0 +1,41 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e5e5e5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a0a0a0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Logo -->
+  <rect x="540" y="120" width="120" height="120" rx="24" fill="url(#logo-grad)"/>
+  <text x="600" y="205" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#000000" text-anchor="middle">A</text>
+  
+  <!-- Title -->
+  <text x="600" y="300" font-family="Arial, sans-serif" font-size="72" font-weight="800" fill="#ffffff" text-anchor="middle">AgentHub</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="32" fill="#a0a0a0" text-anchor="middle">Decentralized AI Agent Marketplace</text>
+  
+  <!-- Stats -->
+  <g transform="translate(250, 430)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">127</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle" letter-spacing="2">AGENTS</text>
+  </g>
+  
+  <g transform="translate(600, 430)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">$24.5K</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle" letter-spacing="2">VOLUME</text>
+  </g>
+  
+  <g transform="translate(950, 430)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">98.2%</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle" letter-spacing="2">SUCCESS</text>
+  </g>
+</svg>
