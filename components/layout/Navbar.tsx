@@ -14,9 +14,9 @@ export function Navbar() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between gap-4">
-          {/* Logo - Left */}
-          <Link href="/" className="flex items-center gap-3 group" style={{ minWidth: 'fit-content' }}>
+        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4">
+          {/* Logo - Left (fixed width) */}
+          <Link href="/" className="flex items-center gap-3 group">
             <div 
               className="w-10 h-10 rounded-lg flex items-center justify-center"
               style={{
@@ -27,7 +27,7 @@ export function Navbar() {
               <span className="text-white font-bold text-xl">A</span>
             </div>
             <span 
-              className="text-2xl font-bold tracking-wider"
+              className="text-2xl font-bold tracking-wider whitespace-nowrap"
               style={{ 
                 fontFamily: 'Audiowide, sans-serif',
                 color: '#1e2329'
@@ -37,38 +37,40 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Nav Links - Center (hidden on mobile) */}
+          {/* Nav Links - Center (flexible, hidden on mobile) */}
           <div 
-            className="hidden md:flex items-center gap-6"
+            className="hidden md:flex items-center justify-center gap-6"
             style={{ fontFamily: 'JetBrains Mono, monospace' }}
           >
             <Link 
               href="/agents" 
-              className="font-medium text-sm transition-colors hover:text-blue-600"
+              className="font-medium text-sm transition-colors hover:text-blue-600 whitespace-nowrap"
               style={{ color: '#707a8a' }}
             >
               Agents
             </Link>
             <Link 
               href="/jobs" 
-              className="font-medium text-sm transition-colors hover:text-blue-600"
+              className="font-medium text-sm transition-colors hover:text-blue-600 whitespace-nowrap"
               style={{ color: '#707a8a' }}
             >
               Jobs
             </Link>
             <Link 
               href="/dashboard" 
-              className="font-medium text-sm transition-colors hover:text-blue-600"
+              className="font-medium text-sm transition-colors hover:text-blue-600 whitespace-nowrap"
               style={{ color: '#707a8a' }}
             >
               Dashboard
             </Link>
           </div>
 
-          {/* Right side: Theme Toggle + Wallet */}
-          <div className="flex items-center gap-3" style={{ minWidth: 'fit-content' }}>
+          {/* Right side: Theme Toggle + Wallet (fixed width) */}
+          <div className="flex items-center justify-end gap-3" style={{ minWidth: '200px' }}>
             <ThemeToggle />
-            <WalletConnect />
+            <div style={{ minWidth: '120px' }}>
+              <WalletConnect />
+            </div>
           </div>
         </div>
       </div>
