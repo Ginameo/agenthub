@@ -49,8 +49,8 @@ export function Footer() {
           <div>
             <h3 className="font-bold mb-4 text-white">Resources</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="https://github.com/Ginameo/agenthub" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="https://github.com/Ginameo/agenthub" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Smart Contracts</a></li>
+              <li><a href="https://arc.io" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+              <li><a href="https://github.com/Ginameo/agenthub" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">GitHub</a></li>
               <li><a href="https://basescan.org" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Base Sepolia</a></li>
               <li><a href="https://github.com/Ginameo/agenthub/issues" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Support</a></li>
             </ul>
