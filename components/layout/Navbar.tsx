@@ -9,7 +9,7 @@ export function Navbar() {
     <nav 
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b bg-white/95 border-gray-200"
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6 py-4 overflow-hidden">
         {/* PROPER STRUCTURE: justify-between untuk spread left/right */}
         <div className="flex items-center justify-between">
           
@@ -39,7 +39,7 @@ export function Navbar() {
 
             {/* Nav Links - gap-6 untuk spacing */}
             <div 
-              className="hidden md:flex items-center gap-6"
+              className="flex items-center gap-6"
               style={{ fontFamily: 'JetBrains Mono, monospace' }}
             >
               <Link 
