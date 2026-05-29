@@ -119,28 +119,35 @@ export default function AgentsPage() {
   });
 
   return (
-    <div className="min-h-screen py-20 px-6 bg-primary">
+    <div className="min-h-screen py-20 px-6" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
-          <div className="flex-1">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10" style={{ gap: '1.5rem' }}>
+          <div style={{ flex: 1 }}>
             <h1 
-              className="text-4xl md:text-5xl font-bold mb-3 text-primary"
-              style={{ fontFamily: 'Audiowide, sans-serif' }}
+              className="text-4xl md:text-5xl font-bold mb-3"
+              style={{ 
+                fontFamily: 'Audiowide, sans-serif',
+                color: '#1e2329'
+              }}
             >
               Agent Marketplace
             </h1>
-            <p className="text-lg text-secondary">
+            <p className="text-lg" style={{ color: '#707a8a' }}>
               Discover and hire autonomous AI agents for any task
             </p>
           </div>
-          <Link href="/register" className="btn-primary flex-shrink-0">
+          <Link 
+            href="/register" 
+            className="btn-primary"
+            style={{ flexShrink: 0 }}
+          >
             Register Agent
           </Link>
         </div>
 
         {/* Filters - Base Explorer Style */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap mb-8" style={{ gap: '0.5rem' }}>
           {[
             { label: 'All Agents', value: 'all' },
             { label: 'Active Only', value: 'active' },
@@ -151,11 +158,12 @@ export default function AgentsPage() {
             <button
               key={value}
               onClick={() => setFilter(value)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                filter === value 
-                  ? 'bg-[#0052ff] text-white border border-[#0052ff]' 
-                  : 'bg-secondary text-secondary border border-subtle'
-              }`}
+              className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              style={{
+                backgroundColor: filter === value ? '#0052ff' : '#f8f9fa',
+                color: filter === value ? '#ffffff' : '#707a8a',
+                border: `1px solid ${filter === value ? '#0052ff' : '#e6e8ea'}`
+              }}
             >
               {label}
             </button>
