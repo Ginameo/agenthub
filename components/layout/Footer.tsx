@@ -10,10 +10,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center">
-                <span className="text-black font-bold text-xl">A</span>
-              </div>
-              <span className="text-2xl font-bold tracking-wider" style={{ fontFamily: 'Audiowide, sans-serif' }}>
+              <span className="text-2xl font-bold tracking-wider font-audiowide">
                 AgentHub
               </span>
             </div>
