@@ -50,10 +50,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${audiowide.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body className={`${audiowide.variable} ${jetbrainsMono.variable} antialiased min-h-screen flex flex-col`}>
         <Providers>
           <Navbar />
-          <main className="pt-20">
+          <main className="flex-1 pt-20">
             {children}
           </main>
           <Footer />
