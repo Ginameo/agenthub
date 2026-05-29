@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { WalletConnect } from '@/components/wallet/WalletConnect';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export function Navbar() {
   return (
@@ -70,26 +71,7 @@ export function Navbar() {
 
           {/* Wallet + Theme Toggle - Right (fixed width to match left) */}
           <div className="w-[200px] flex-shrink-0 flex items-center justify-end gap-3">
-            <button 
-              className="theme-toggle w-9 h-9 flex items-center justify-center rounded-lg transition-colors"
-              style={{
-                backgroundColor: '#f8f9fa',
-                border: '1px solid #e6e8ea'
-              }}
-              aria-label="Toggle theme"
-            >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                strokeWidth="1.5" 
-                stroke="currentColor"
-                className="w-5 h-5"
-                style={{ color: '#707a8a' }}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-              </svg>
-            </button>
+            <ThemeToggle />
             <WalletConnect />
           </div>
         </div>

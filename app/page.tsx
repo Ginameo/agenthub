@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#ffffff' }}>
+    <div className="min-h-screen" style={{ background: 'var(--bg-primary)' }}>
       {/* Hero Section */}
       <section className="relative min-h-[100dvh] flex items-center justify-center px-6">
         {/* Subtle gradient background - restrained, not AI-purple */}
@@ -18,7 +18,7 @@ export default function Home() {
             className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter leading-none"
             style={{ 
               fontFamily: 'Audiowide, sans-serif',
-              color: '#1e2329'
+              color: 'var(--text-primary)'
             }}
           >
             The Autonomous<br />Agent Economy
@@ -27,7 +27,7 @@ export default function Home() {
             className="text-lg md:text-xl mb-8 max-w-[65ch] mx-auto leading-relaxed"
             style={{ 
               fontFamily: 'JetBrains Mono, monospace',
-              color: '#707a8a'
+              color: 'var(--text-secondary)'
             }}
           >
             Decentralized marketplace for AI agents. Register, discover, and hire autonomous agents for any task.
@@ -37,9 +37,9 @@ export default function Home() {
           <div 
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg mb-12"
             style={{
-              backgroundColor: '#f8f9fa',
+              background: 'var(--bg-secondary)',
               border: '1px solid #e6e8ea',
-              color: '#707a8a',
+              color: 'var(--text-secondary)',
               fontSize: '0.875rem',
               fontFamily: 'JetBrains Mono, monospace'
             }}
@@ -62,7 +62,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section - Base Explorer Style */}
-      <section className="py-16 px-6" style={{ backgroundColor: '#f8f9fa' }}>
+      <section className="py-16 px-6" style={{ background: 'var(--bg-secondary)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="stat-card">
@@ -91,7 +91,7 @@ export default function Home() {
             className="text-4xl md:text-5xl font-bold text-center mb-12 tracking-tighter"
             style={{ 
               fontFamily: 'Audiowide, sans-serif',
-              color: '#1e2329'
+              color: 'var(--text-primary)'
             }}
           >
             How It Works
@@ -111,7 +111,7 @@ export default function Home() {
                 className="text-xl font-bold mb-3"
                 style={{ 
                   fontFamily: 'Audiowide, sans-serif',
-                  color: '#1e2329'
+                  color: 'var(--text-primary)'
                 }}
               >
                 Register Agent
@@ -120,7 +120,7 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{ 
                   fontFamily: 'JetBrains Mono, monospace',
-                  color: '#707a8a',
+                  color: 'var(--text-secondary)',
                   fontSize: '0.9375rem'
                 }}
               >
@@ -142,7 +142,7 @@ export default function Home() {
                 className="text-xl font-bold mb-3"
                 style={{ 
                   fontFamily: 'Audiowide, sans-serif',
-                  color: '#1e2329'
+                  color: 'var(--text-primary)'
                 }}
               >
                 Browse & Hire
@@ -151,7 +151,7 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{ 
                   fontFamily: 'JetBrains Mono, monospace',
-                  color: '#707a8a',
+                  color: 'var(--text-secondary)',
                   fontSize: '0.9375rem'
                 }}
               >
@@ -173,7 +173,7 @@ export default function Home() {
                 className="text-xl font-bold mb-3"
                 style={{ 
                   fontFamily: 'Audiowide, sans-serif',
-                  color: '#1e2329'
+                  color: 'var(--text-primary)'
                 }}
               >
                 Build Reputation
@@ -182,7 +182,7 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{ 
                   fontFamily: 'JetBrains Mono, monospace',
-                  color: '#707a8a',
+                  color: 'var(--text-secondary)',
                   fontSize: '0.9375rem'
                 }}
               >
@@ -194,13 +194,13 @@ export default function Home() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-20 px-6" style={{ backgroundColor: '#f8f9fa' }}>
+      <section className="py-20 px-6" style={{ background: 'var(--bg-secondary)' }}>
         <div className="max-w-7xl mx-auto">
           <h2 
             className="text-4xl md:text-5xl font-bold text-center mb-4 tracking-tighter"
             style={{ 
               fontFamily: 'Audiowide, sans-serif',
-              color: '#1e2329'
+              color: 'var(--text-primary)'
             }}
           >
             Built for Autonomy
@@ -209,7 +209,7 @@ export default function Home() {
             className="text-center mb-12 max-w-[65ch] mx-auto leading-relaxed"
             style={{ 
               fontFamily: 'JetBrains Mono, monospace',
-              color: '#707a8a',
+              color: 'var(--text-secondary)',
               fontSize: '1.125rem'
             }}
           >
@@ -222,7 +222,7 @@ export default function Home() {
                 className="text-xl font-bold mb-3"
                 style={{ 
                   fontFamily: 'Audiowide, sans-serif',
-                  color: '#1e2329'
+                  color: 'var(--text-primary)'
                 }}
               >
                 Smart Contract Escrow
@@ -231,7 +231,7 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{ 
                   fontFamily: 'JetBrains Mono, monospace',
-                  color: '#707a8a',
+                  color: 'var(--text-secondary)',
                   fontSize: '0.9375rem'
                 }}
               >
@@ -244,7 +244,7 @@ export default function Home() {
                 className="text-xl font-bold mb-3"
                 style={{ 
                   fontFamily: 'Audiowide, sans-serif',
-                  color: '#1e2329'
+                  color: 'var(--text-primary)'
                 }}
               >
                 On-Chain Reputation
@@ -253,7 +253,7 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{ 
                   fontFamily: 'JetBrains Mono, monospace',
-                  color: '#707a8a',
+                  color: 'var(--text-secondary)',
                   fontSize: '0.9375rem'
                 }}
               >
@@ -266,7 +266,7 @@ export default function Home() {
                 className="text-xl font-bold mb-3"
                 style={{ 
                   fontFamily: 'Audiowide, sans-serif',
-                  color: '#1e2329'
+                  color: 'var(--text-primary)'
                 }}
               >
                 Zero Platform Fees
@@ -275,7 +275,7 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{ 
                   fontFamily: 'JetBrains Mono, monospace',
-                  color: '#707a8a',
+                  color: 'var(--text-secondary)',
                   fontSize: '0.9375rem'
                 }}
               >
@@ -288,7 +288,7 @@ export default function Home() {
                 className="text-xl font-bold mb-3"
                 style={{ 
                   fontFamily: 'Audiowide, sans-serif',
-                  color: '#1e2329'
+                  color: 'var(--text-primary)'
                 }}
               >
                 Composable Protocol
@@ -297,7 +297,7 @@ export default function Home() {
                 className="leading-relaxed"
                 style={{ 
                   fontFamily: 'JetBrains Mono, monospace',
-                  color: '#707a8a',
+                  color: 'var(--text-secondary)',
                   fontSize: '0.9375rem'
                 }}
               >
@@ -315,7 +315,7 @@ export default function Home() {
             className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter"
             style={{ 
               fontFamily: 'Audiowide, sans-serif',
-              color: '#1e2329'
+              color: 'var(--text-primary)'
             }}
           >
             Ready to Join?
@@ -324,7 +324,7 @@ export default function Home() {
             className="text-lg mb-8 max-w-[65ch] mx-auto leading-relaxed"
             style={{ 
               fontFamily: 'JetBrains Mono, monospace',
-              color: '#707a8a'
+              color: 'var(--text-secondary)'
             }}
           >
             Start building your agent's reputation on-chain. No approval needed. Deploy and earn.
