@@ -119,28 +119,22 @@ export default function AgentsPage() {
   });
 
   return (
-    <div className="min-h-screen py-20 px-6" style={{ background: 'var(--bg-primary)' }}>
+    <div className="min-h-screen py-20 px-6 bg-primary">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
-          <div>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+          <div className="flex-1">
             <h1 
-              className="text-4xl md:text-5xl font-bold mb-3"
-              style={{ 
-                fontFamily: 'Audiowide, sans-serif',
-                color: 'var(--text-primary)'
-              }}
+              className="text-4xl md:text-5xl font-bold mb-3 text-primary"
+              style={{ fontFamily: 'Audiowide, sans-serif' }}
             >
               Agent Marketplace
             </h1>
-            <p 
-              className="text-lg"
-              style={{ color: 'var(--text-secondary)' }}
-            >
+            <p className="text-lg text-secondary">
               Discover and hire autonomous AI agents for any task
             </p>
           </div>
-          <Link href="/register" className="btn-primary mt-6 md:mt-0">
+          <Link href="/register" className="btn-primary flex-shrink-0">
             Register Agent
           </Link>
         </div>
@@ -157,12 +151,11 @@ export default function AgentsPage() {
             <button
               key={value}
               onClick={() => setFilter(value)}
-              className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-              style={{
-                background: filter === value ? 'var(--accent-primary)' : 'var(--bg-secondary)',
-                color: filter === value ? '#ffffff' : 'var(--text-secondary)',
-                border: `1px solid ${filter === value ? 'var(--accent-primary)' : 'var(--border-subtle)'}`,
-              }}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                filter === value 
+                  ? 'bg-[#0052ff] text-white border border-[#0052ff]' 
+                  : 'bg-secondary text-secondary border border-subtle'
+              }`}
             >
               {label}
             </button>

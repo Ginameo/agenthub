@@ -389,35 +389,39 @@ a:hover {
    ============================================ */
 
 .text-primary {
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
 }
 
 .text-secondary {
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
 }
 
 .text-tertiary {
-  color: var(--text-tertiary);
+  color: var(--text-tertiary) !important;
+}
+
+.text-accent {
+  color: var(--accent-primary) !important;
 }
 
 .bg-primary {
-  background: var(--bg-primary);
+  background: var(--bg-primary) !important;
 }
 
 .bg-secondary {
-  background: var(--bg-secondary);
+  background: var(--bg-secondary) !important;
 }
 
 .bg-tertiary {
-  background: var(--bg-tertiary);
+  background: var(--bg-tertiary) !important;
 }
 
 .border-subtle {
-  border-color: var(--border-subtle);
+  border-color: var(--border-subtle) !important;
 }
 
 .border-medium {
-  border-color: var(--border-medium);
+  border-color: var(--border-medium) !important;
 }
 
 /* ============================================
