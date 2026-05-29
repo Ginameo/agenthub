@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 /* ============================================
-   BASE EXPLORER STYLE - LIGHT/DARK MODE
+   BASE EXPLORER STYLE - LIGHT MODE ONLY
    ============================================ */
 
 :root {
-  /* Light mode (default) */
+  /* Light mode colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
   --bg-tertiary: #e9ecef;
@@ -20,26 +20,6 @@
   --border-medium: #d1d5db;
   --card-shadow: rgba(0, 0, 0, 0.04);
   --card-shadow-hover: rgba(0, 0, 0, 0.08);
-  --success: #16c784;
-  --warning: #f59e0b;
-  --error: #ea3943;
-  --info: #3b82f6;
-}
-
-[data-theme="dark"] {
-  /* Dark mode */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #141414;
-  --bg-tertiary: #1a1a1a;
-  --text-primary: #f5f5f5;
-  --text-secondary: #a0a0a0;
-  --text-tertiary: #6b7280;
-  --accent-primary: #0052ff;
-  --accent-hover: #3374ff;
-  --border-subtle: #1f1f1f;
-  --border-medium: #2a2a2a;
-  --card-shadow: rgba(255, 255, 255, 0.02);
-  --card-shadow-hover: rgba(255, 255, 255, 0.04);
   --success: #16c784;
   --warning: #f59e0b;
   --error: #ea3943;

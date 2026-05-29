@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { WalletConnect } from '@/components/wallet/WalletConnect';
-import ThemeToggle from '@/components/ThemeToggle';
 
 export function Navbar() {
   return (
@@ -14,9 +13,9 @@ export function Navbar() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4">
-          {/* Logo - Left (fixed width) */}
-          <Link href="/" className="flex items-center gap-3 group">
+        <div className="flex items-center justify-between">
+          {/* Logo - Left */}
+          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <div 
               className="w-10 h-10 rounded-lg flex items-center justify-center"
               style={{
@@ -37,9 +36,9 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Nav Links - Center (flexible, hidden on mobile) */}
+          {/* Nav Links - Center (hidden on mobile) */}
           <div 
-            className="hidden md:flex items-center justify-center gap-6"
+            className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2"
             style={{ fontFamily: 'JetBrains Mono, monospace' }}
           >
             <Link 
@@ -65,12 +64,9 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Right side: Theme Toggle + Wallet (fixed width) */}
-          <div className="flex items-center justify-end gap-3" style={{ minWidth: '200px' }}>
-            <ThemeToggle />
-            <div style={{ minWidth: '120px' }}>
-              <WalletConnect />
-            </div>
+          {/* Wallet - Right */}
+          <div className="flex-shrink-0">
+            <WalletConnect />
           </div>
         </div>
       </div>
