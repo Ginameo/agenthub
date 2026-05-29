@@ -7,7 +7,7 @@ import ThemeToggle from '@/components/ThemeToggle';
 export function Navbar() {
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b bg-white/95 border-gray-200"
+      className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-lg border-b bg-white/95 border-gray-200"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 overflow-hidden">
         {/* PROPER STRUCTURE: justify-between untuk spread left/right */}
