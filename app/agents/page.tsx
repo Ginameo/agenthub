@@ -119,12 +119,24 @@ export default function AgentsPage() {
   });
 
   return (
-    <div className="min-h-screen py-20 px-6">
+    <div className="min-h-screen py-20 px-6" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
           <div>
-            <h1 className="text-5xl font-bold mb-4">Agent Marketplace</h1>
-            <p className="text-xl text-gray-400">
+            <h1 
+              className="text-4xl md:text-5xl font-bold mb-3"
+              style={{ 
+                fontFamily: 'Audiowide, sans-serif',
+                color: 'var(--text-primary)'
+              }}
+            >
+              Agent Marketplace
+            </h1>
+            <p 
+              className="text-lg"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               Discover and hire autonomous AI agents for any task
             </p>
           </div>
@@ -133,88 +145,78 @@ export default function AgentsPage() {
           </Link>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap gap-3 mb-8">
-          <button
-            onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              filter === 'all'
-                ? 'bg-white text-black'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-            }`}
-          >
-            All Agents
-          </button>
-          <button
-            onClick={() => setFilter('active')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              filter === 'active'
-                ? 'bg-white text-black'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-            }`}
-          >
-            Active Only
-          </button>
-          <button
-            onClick={() => setFilter('solidity')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              filter === 'solidity'
-                ? 'bg-white text-black'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-            }`}
-          >
-            Solidity
-          </button>
-          <button
-            onClick={() => setFilter('python')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              filter === 'python'
-                ? 'bg-white text-black'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-            }`}
-          >
-            Python
-          </button>
-          <button
-            onClick={() => setFilter('writing')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              filter === 'writing'
-                ? 'bg-white text-black'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-            }`}
-          >
-            Writing
-          </button>
+        {/* Filters - Base Explorer Style */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {[
+            { label: 'All Agents', value: 'all' },
+            { label: 'Active Only', value: 'active' },
+            { label: 'Solidity', value: 'solidity' },
+            { label: 'Python', value: 'python' },
+            { label: 'Writing', value: 'writing' }
+          ].map(({ label, value }) => (
+            <button
+              key={value}
+              onClick={() => setFilter(value)}
+              className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              style={{
+                background: filter === value ? 'var(--accent-primary)' : 'var(--bg-secondary)',
+                color: filter === value ? '#ffffff' : 'var(--text-secondary)',
+                border: `1px solid ${filter === value ? 'var(--accent-primary)' : 'var(--border-subtle)'}`,
+              }}
+            >
+              {label}
+            </button>
+          ))}
         </div>
 
         {/* Agent Grid */}
         {loading ? (
           <div className="text-center py-20">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+            <div 
+              className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2"
+              style={{ borderColor: 'var(--accent-primary)' }}
+            ></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredAgents.map((agent) => (
               <Link key={agent.id} href={`/agents/${agent.id}`}>
                 <div className="card cursor-pointer h-full">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold mb-1">{agent.name}</h3>
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1">
+                      <h3 
+                        className="text-lg font-bold mb-2"
+                        style={{ color: 'var(--text-primary)' }}
+                      >
+                        {agent.name}
+                      </h3>
                       <div className="flex items-center gap-2">
                         <span className={`badge ${agent.isActive ? 'badge-success' : 'badge-warning'}`}>
                           {agent.isActive ? 'Online' : 'Offline'}
                         </span>
-                        <span className="text-sm text-gray-400">
+                        <span 
+                          className="text-sm flex items-center gap-1"
+                          style={{ color: 'var(--text-tertiary)' }}
+                        >
                           ⭐ {agent.rating.toFixed(1)}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                  {/* Description */}
+                  <p 
+                    className="text-sm mb-4 line-clamp-2"
+                    style={{ 
+                      color: 'var(--text-secondary)',
+                      lineHeight: '1.5'
+                    }}
+                  >
                     {agent.description}
                   </p>
 
+                  {/* Skills */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {agent.skills.slice(0, 3).map((skill, idx) => (
                       <span key={idx} className="badge text-xs">
@@ -228,18 +230,59 @@ export default function AgentsPage() {
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-800">
+                  {/* Stats - Base Explorer Style */}
+                  <div 
+                    className="flex items-center justify-between pt-4"
+                    style={{ borderTop: '1px solid var(--border-subtle)' }}
+                  >
                     <div>
-                      <div className="text-sm text-gray-400">Price</div>
-                      <div className="text-lg font-bold">${agent.pricePerJob}</div>
+                      <div 
+                        className="text-xs mb-1"
+                        style={{ color: 'var(--text-tertiary)' }}
+                      >
+                        Price
+                      </div>
+                      <div 
+                        className="text-base font-bold"
+                        style={{ 
+                          color: 'var(--text-primary)',
+                          fontFamily: 'JetBrains Mono, monospace'
+                        }}
+                      >
+                        ${agent.pricePerJob}
+                      </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-sm text-gray-400">Jobs</div>
-                      <div className="text-lg font-bold">{agent.totalJobs}</div>
+                      <div 
+                        className="text-xs mb-1"
+                        style={{ color: 'var(--text-tertiary)' }}
+                      >
+                        Jobs
+                      </div>
+                      <div 
+                        className="text-base font-bold"
+                        style={{ 
+                          color: 'var(--text-primary)',
+                          fontFamily: 'JetBrains Mono, monospace'
+                        }}
+                      >
+                        {agent.totalJobs}
+                      </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-sm text-gray-400">Success</div>
-                      <div className="text-lg font-bold">
+                      <div 
+                        className="text-xs mb-1"
+                        style={{ color: 'var(--text-tertiary)' }}
+                      >
+                        Success
+                      </div>
+                      <div 
+                        className="text-base font-bold"
+                        style={{ 
+                          color: 'var(--success)',
+                          fontFamily: 'JetBrains Mono, monospace'
+                        }}
+                      >
                         {agent.totalJobs > 0
                           ? ((agent.successfulJobs / agent.totalJobs) * 100).toFixed(0)
                           : 0}%
@@ -252,9 +295,15 @@ export default function AgentsPage() {
           </div>
         )}
 
+        {/* Empty State */}
         {!loading && filteredAgents.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-xl text-gray-400">No agents found matching your criteria</p>
+            <p 
+              className="text-lg"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              No agents found matching your criteria
+            </p>
           </div>
         )}
       </div>

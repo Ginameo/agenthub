@@ -2,15 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   BASE EXPLORER STYLE - LIGHT/DARK MODE
+   ============================================ */
+
 :root {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --text-primary: #ffffff;
+  /* Light mode (default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #1e2329;
+  --text-secondary: #707a8a;
+  --text-tertiary: #929aa5;
+  --accent-primary: #0052ff; /* Base blue */
+  --accent-hover: #0041cc;
+  --border-subtle: #e6e8ea;
+  --border-medium: #d1d5db;
+  --card-shadow: rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: rgba(0, 0, 0, 0.08);
+  --success: #16c784;
+  --warning: #f59e0b;
+  --error: #ea3943;
+  --info: #3b82f6;
+}
+
+[data-theme="dark"] {
+  /* Dark mode */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-tertiary: #1a1a1a;
+  --text-primary: #f5f5f5;
   --text-secondary: #a0a0a0;
-  --accent-silver: #c0c0c0;
-  --accent-white: #ffffff;
-  --accent-gray: #6b7280;
-  --border-subtle: #1a1a1a;
+  --text-tertiary: #6b7280;
+  --accent-primary: #0052ff;
+  --accent-hover: #3374ff;
+  --border-subtle: #1f1f1f;
+  --border-medium: #2a2a2a;
+  --card-shadow: rgba(255, 255, 255, 0.02);
+  --card-shadow-hover: rgba(255, 255, 255, 0.04);
+  --success: #16c784;
+  --warning: #f59e0b;
+  --error: #ea3943;
+  --info: #3b82f6;
 }
 
 * {
@@ -22,133 +55,391 @@
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-jetbrains), monospace;
+  font-family: var(--font-jetbrains), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-audiowide), sans-serif;
-  letter-spacing: 0.05em;
+  font-family: var(--font-audiowide), -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
-/* Scrollbar */
+/* ============================================
+   SCROLLBAR - BASE EXPLORER STYLE
+   ============================================ */
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-subtle);
-  border-radius: 4px;
+  background: var(--border-medium);
+  border-radius: 5px;
+  border: 2px solid var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a2a2a;
+  background: var(--text-tertiary);
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--text-primary), var(--accent-silver));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+
+.theme-toggle {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-/* Button styles */
+.theme-toggle:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-medium);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   BUTTON STYLES - BASE EXPLORER
+   ============================================ */
+
 .btn-primary {
-  background: linear-gradient(135deg, #ffffff, #e5e5e5);
-  color: #000000;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.3s;
+  background: var(--accent-primary);
+  color: #ffffff;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
   border: none;
   cursor: pointer;
-  font-family: var(--font-jetbrains), monospace;
+  font-family: var(--font-jetbrains), sans-serif;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-  background: linear-gradient(135deg, #f5f5f5, #d4d4d4);
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 82, 255, 0.2);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: var(--bg-secondary);
   color: var(--text-primary);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
   border: 1px solid var(--border-subtle);
-  font-weight: 600;
-  transition: all 0.3s;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
   cursor: pointer;
-  font-family: var(--font-jetbrains), monospace;
+  font-family: var(--font-jetbrains), sans-serif;
 }
 
 .btn-secondary:hover {
-  border-color: var(--accent-silver);
-  box-shadow: 0 0 20px rgba(192, 192, 192, 0.15);
+  background: var(--bg-tertiary);
+  border-color: var(--border-medium);
 }
 
-/* Card styles */
+.btn-outline {
+  background: transparent;
+  color: var(--accent-primary);
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent-primary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: var(--font-jetbrains), sans-serif;
+}
+
+.btn-outline:hover {
+  background: var(--accent-primary);
+  color: #ffffff;
+}
+
+/* ============================================
+   CARD STYLES - BASE EXPLORER
+   ============================================ */
+
 .card {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border: 1px solid var(--border-subtle);
-  border-radius: 1rem;
-  padding: 2rem;
-  transition: all 0.3s;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px var(--card-shadow);
 }
 
 .card:hover {
-  border-color: var(--accent-silver);
-  box-shadow: 0 0 20px rgba(192, 192, 192, 0.1), inset 0 0 20px rgba(192, 192, 192, 0.03);
+  border-color: var(--border-medium);
+  box-shadow: 0 4px 12px var(--card-shadow-hover);
+  transform: translateY(-2px);
 }
 
-/* Input styles */
-.input {
+.card-flat {
   background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* ============================================
+   INPUT STYLES - BASE EXPLORER
+   ============================================ */
+
+.input {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.625rem 1rem;
   color: var(--text-primary);
-  font-family: var(--font-jetbrains), monospace;
-  transition: all 0.3s;
+  font-family: var(--font-jetbrains), sans-serif;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
   width: 100%;
 }
 
 .input:focus {
   outline: none;
-  border-color: var(--accent-silver);
-  box-shadow: 0 0 0 3px rgba(192, 192, 192, 0.1);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.1);
 }
 
 .input::placeholder {
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
 }
 
-/* Badge styles */
+/* ============================================
+   BADGE STYLES - BASE EXPLORER
+   ============================================ */
+
 .badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
   font-size: 0.75rem;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
 }
 
 .badge-success {
-  background: rgba(34, 197, 94, 0.1);
-  color: #22c55e;
-  border-color: rgba(34, 197, 94, 0.2);
+  background: rgba(22, 199, 132, 0.1);
+  color: var(--success);
+  border-color: rgba(22, 199, 132, 0.2);
 }
 
 .badge-warning {
-  background: rgba(251, 191, 36, 0.1);
-  color: #fbbf24;
-  border-color: rgba(251, 191, 36, 0.2);
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.badge-error {
+  background: rgba(234, 57, 67, 0.1);
+  color: var(--error);
+  border-color: rgba(234, 57, 67, 0.2);
+}
+
+.badge-info {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--info);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* ============================================
+   TABLE STYLES - BASE EXPLORER
+   ============================================ */
+
+.table-container {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.table th {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background: var(--bg-secondary);
+}
+
+/* ============================================
+   LINK STYLES - BASE EXPLORER
+   ============================================ */
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ============================================
+   STAT CARD - BASE EXPLORER
+   ============================================ */
+
+.stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-audiowide), sans-serif;
+}
+
+.stat-change {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.stat-change.positive {
+  color: var(--success);
+}
+
+.stat-change.negative {
+  color: var(--error);
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary), #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.bg-primary {
+  background: var(--bg-primary);
+}
+
+.bg-secondary {
+  background: var(--bg-secondary);
+}
+
+.bg-tertiary {
+  background: var(--bg-tertiary);
+}
+
+.border-subtle {
+  border-color: var(--border-subtle);
+}
+
+.border-medium {
+  border-color: var(--border-medium);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8125rem;
+  }
 }
