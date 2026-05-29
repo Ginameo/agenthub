@@ -122,8 +122,8 @@ export default function AgentsPage() {
     <div className="min-h-screen py-20 px-6" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10" style={{ gap: '1.5rem' }}>
-          <div style={{ flex: 1 }}>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
+          <div className="flex-1">
             <h1 
               className="text-4xl md:text-5xl font-bold mb-3"
               style={{ 
@@ -139,15 +139,14 @@ export default function AgentsPage() {
           </div>
           <Link 
             href="/register" 
-            className="btn-primary"
-            style={{ flexShrink: 0 }}
+            className="btn-primary flex-shrink-0"
           >
             Register Agent
           </Link>
         </div>
 
         {/* Filters - Base Explorer Style */}
-        <div className="flex flex-wrap mb-8" style={{ gap: '0.5rem' }}>
+        <div className="flex flex-wrap gap-2 mb-8">
           {[
             { label: 'All Agents', value: 'all' },
             { label: 'Active Only', value: 'active' },
