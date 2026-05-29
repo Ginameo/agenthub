@@ -7,11 +7,11 @@ import ThemeToggle from '@/components/ThemeToggle';
 export function Navbar() {
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-lg border-b bg-white/95 border-gray-200"
+      className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-lg bg-white border-b border-gray-200"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 overflow-hidden">
         {/* PROPER STRUCTURE: justify-between untuk spread left/right */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between text-gray-900">
           
           {/* LEFT SIDE: Logo + Nav Links */}
           <div className="flex items-center gap-8">
