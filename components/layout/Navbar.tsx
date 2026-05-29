@@ -7,7 +7,7 @@ import ThemeToggle from '@/components/ThemeToggle';
 export function Navbar() {
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-lg bg-black border-b border-gray-200"
+      className="fixed top-0 left-0 right-0 z-50 w-full bg-gray-900 border-b border-gray-800"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 overflow-hidden">
         {/* PROPER STRUCTURE: justify-between untuk spread left/right */}
@@ -20,7 +20,7 @@ export function Navbar() {
               <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-500 shadow-lg shadow-blue-500/20">
                 <span className="text-white font-bold text-xl">A</span>
               </div>
-              <span className="text-xl font-bold tracking-wider whitespace-nowrap text-gray-900 dark:text-white font-audiowide">
+              <span className="text-xl font-bold tracking-wider whitespace-nowrap text-white font-audiowide">
                 AgentHub
               </span>
             </Link>
@@ -29,19 +29,19 @@ export function Navbar() {
             <div className="flex items-center gap-6 font-jetbrains">
               <Link 
                 href="/agents" 
-                className="font-medium text-sm transition-colors hover:text-blue-600 whitespace-nowrap text-gray-600 dark:text-gray-300"
+                className="font-medium text-sm transition-colors hover:text-white whitespace-nowrap text-gray-300"
               >
                 Agents
               </Link>
               <Link 
                 href="/jobs" 
-                className="font-medium text-sm transition-colors hover:text-blue-600 whitespace-nowrap text-gray-600 dark:text-gray-300"
+                className="font-medium text-sm transition-colors hover:text-white whitespace-nowrap text-gray-300"
               >
                 Jobs
               </Link>
               <Link 
                 href="/dashboard" 
-                className="font-medium text-sm transition-colors hover:text-blue-600 whitespace-nowrap text-gray-600 dark:text-gray-300"
+                className="font-medium text-sm transition-colors hover:text-white whitespace-nowrap text-gray-300"
               >
                 Dashboard
               </Link>
