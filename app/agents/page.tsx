@@ -146,27 +146,43 @@ export default function AgentsPage() {
         </div>
 
         {/* Filters - Base Explorer Style */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {[
-            { label: 'All Agents', value: 'all' },
-            { label: 'Active Only', value: 'active' },
-            { label: 'Solidity', value: 'solidity' },
-            { label: 'Python', value: 'python' },
-            { label: 'Writing', value: 'writing' }
-          ].map(({ label, value }) => (
-            <button
-              key={value}
-              onClick={() => setFilter(value)}
-              className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-              style={{
-                backgroundColor: filter === value ? '#0052ff' : '#f8f9fa',
-                color: filter === value ? '#ffffff' : '#707a8a',
-                border: `1px solid ${filter === value ? '#0052ff' : '#e6e8ea'}`
-              }}
-            >
-              {label}
-            </button>
-          ))}
+        {/* PROPER STRUCTURE: justify-between untuk pisah filter skill (kiri) dan toggle (kanan) */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          {/* LEFT: Skill Filters dengan gap-2 */}
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: 'All Agents', value: 'all' },
+              { label: 'Solidity', value: 'solidity' },
+              { label: 'Python', value: 'python' },
+              { label: 'Writing', value: 'writing' }
+            ].map(({ label, value }) => (
+              <button
+                key={value}
+                onClick={() => setFilter(value)}
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                style={{
+                  backgroundColor: filter === value ? '#0052ff' : '#f8f9fa',
+                  color: filter === value ? '#ffffff' : '#707a8a',
+                  border: `1px solid ${filter === value ? '#0052ff' : '#e6e8ea'}`
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {/* RIGHT: Active Only Toggle */}
+          <button
+            onClick={() => setFilter(filter === 'active' ? 'all' : 'active')}
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+            style={{
+              backgroundColor: filter === 'active' ? '#0052ff' : '#f8f9fa',
+              color: filter === 'active' ? '#ffffff' : '#707a8a',
+              border: `1px solid ${filter === 'active' ? '#0052ff' : '#e6e8ea'}`
+            }}
+          >
+            Active Only
+          </button>
         </div>
 
         {/* Agent Grid */}
