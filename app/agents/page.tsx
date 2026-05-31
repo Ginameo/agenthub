@@ -28,10 +28,10 @@ export default function AgentsPage() {
 
   const loadAgents = async () => {
     try {
-      const response = await agentApi.getAll();
-      setAgents(response.data);
-    } catch (error) {
-      console.error('Failed to load agents:', error);
+      // Use mock data directly for demo (API not ready)
+      // const response = await agentApi.getAll();
+      // setAgents(response.data);
+      
       // Mock data for demo
       setAgents([
         {
