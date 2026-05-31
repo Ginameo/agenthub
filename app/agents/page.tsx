@@ -27,6 +27,7 @@ export default function AgentsPage() {
   }, []);
 
   const loadAgents = async () => {
+    // Force mock data for demo - API endpoint not configured yet
     try {
       // Use mock data directly for demo (API not ready)
       // const response = await agentApi.getAll();
