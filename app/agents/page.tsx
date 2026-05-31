@@ -120,21 +120,24 @@ export default function AgentsPage() {
   });
 
   return (
-    <div className="min-h-screen pb-20 px-6" style={{ backgroundColor: '#ffffff' }}>
+    <div className="min-h-screen pb-20 px-6" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 fade-in">
           <div className="flex-1">
             <h1 
-              className="text-4xl md:text-5xl font-bold mb-3"
+              className="text-4xl md:text-6xl font-bold mb-3"
               style={{ 
-                fontFamily: 'Audiowide, sans-serif',
-                color: '#1e2329'
+                fontFamily: 'Orbitron, sans-serif',
+                background: 'linear-gradient(135deg, #0052ff, #8B5CF6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
               }}
             >
               Agent Marketplace
             </h1>
-            <p className="text-lg" style={{ color: '#707a8a' }}>
+            <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
               Discover and hire autonomous AI agents for any task
             </p>
           </div>
@@ -146,10 +149,9 @@ export default function AgentsPage() {
           </Link>
         </div>
 
-        {/* Filters - Base Explorer Style */}
-        {/* PROPER STRUCTURE: justify-between untuk pisah filter skill (kiri) dan toggle (kanan) */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-          {/* LEFT: Skill Filters dengan gap-2 */}
+        {/* Filters - Glassmorphism */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 fade-in">
+          {/* LEFT: Skill Filters */}
           <div className="flex flex-wrap gap-2">
             {[
               { label: 'All Agents', value: 'all' },
@@ -160,11 +162,15 @@ export default function AgentsPage() {
               <button
                 key={value}
                 onClick={() => setFilter(value)}
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
                 style={{
-                  backgroundColor: filter === value ? '#0052ff' : '#f8f9fa',
-                  color: filter === value ? '#ffffff' : '#707a8a',
-                  border: `1px solid ${filter === value ? '#0052ff' : '#e6e8ea'}`
+                  background: filter === value 
+                    ? 'linear-gradient(135deg, #0052ff, #8B5CF6)' 
+                    : 'var(--glass-bg)',
+                  backdropFilter: 'blur(16px)',
+                  color: filter === value ? '#ffffff' : 'var(--text-secondary)',
+                  border: `1px solid ${filter === value ? 'rgba(0, 82, 255, 0.5)' : 'var(--glass-border)'}`,
+                  boxShadow: filter === value ? '0 4px 16px rgba(0, 82, 255, 0.3)' : 'none'
                 }}
               >
                 {label}
@@ -175,11 +181,15 @@ export default function AgentsPage() {
           {/* RIGHT: Active Only Toggle */}
           <button
             onClick={() => setFilter(filter === 'active' ? 'all' : 'active')}
-            className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
             style={{
-              backgroundColor: filter === 'active' ? '#0052ff' : '#f8f9fa',
-              color: filter === 'active' ? '#ffffff' : '#707a8a',
-              border: `1px solid ${filter === 'active' ? '#0052ff' : '#e6e8ea'}`
+              background: filter === 'active' 
+                ? 'linear-gradient(135deg, #0052ff, #8B5CF6)' 
+                : 'var(--glass-bg)',
+              backdropFilter: 'blur(16px)',
+              color: filter === 'active' ? '#ffffff' : 'var(--text-secondary)',
+              border: `1px solid ${filter === 'active' ? 'rgba(0, 82, 255, 0.5)' : 'var(--glass-border)'}`,
+              boxShadow: filter === 'active' ? '0 4px 16px rgba(0, 82, 255, 0.3)' : 'none'
             }}
           >
             Active Only
@@ -195,16 +205,22 @@ export default function AgentsPage() {
             ></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredAgents.map((agent) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredAgents.map((agent, index) => (
               <Link key={agent.id} href={`/agents/${agent.id}`}>
-                <div className="card cursor-pointer h-full">
+                <div 
+                  className="glass-card cursor-pointer h-full fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   {/* Header */}
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
                       <h3 
-                        className="text-lg font-bold mb-2"
-                        style={{ color: 'var(--text-primary)' }}
+                        className="text-xl font-bold mb-2"
+                        style={{ 
+                          color: 'var(--text-primary)',
+                          fontFamily: 'Orbitron, sans-serif'
+                        }}
                       >
                         {agent.name}
                       </h3>
@@ -247,10 +263,10 @@ export default function AgentsPage() {
                     )}
                   </div>
 
-                  {/* Stats - Base Explorer Style */}
+                  {/* Stats - Glassmorphism */}
                   <div 
                     className="flex items-center justify-between pt-4"
-                    style={{ borderTop: '1px solid var(--border-subtle)' }}
+                    style={{ borderTop: '1px solid var(--glass-border)' }}
                   >
                     <div>
                       <div 
@@ -262,8 +278,8 @@ export default function AgentsPage() {
                       <div 
                         className="text-base font-bold"
                         style={{ 
-                          color: 'var(--text-primary)',
-                          fontFamily: 'JetBrains Mono, monospace'
+                          color: 'var(--accent-primary)',
+                          fontFamily: 'Orbitron, sans-serif'
                         }}
                       >
                         ${agent.pricePerJob}
@@ -280,7 +296,7 @@ export default function AgentsPage() {
                         className="text-base font-bold"
                         style={{ 
                           color: 'var(--text-primary)',
-                          fontFamily: 'JetBrains Mono, monospace'
+                          fontFamily: 'Orbitron, sans-serif'
                         }}
                       >
                         {agent.totalJobs}
@@ -293,11 +309,10 @@ export default function AgentsPage() {
                       >
                         Success
                       </div>
-                      <div 
-                        className="text-base font-bold"
+                      <div \n                        className="text-base font-bold"
                         style={{ 
                           color: 'var(--success)',
-                          fontFamily: 'JetBrains Mono, monospace'
+                          fontFamily: 'Orbitron, sans-serif'
                         }}
                       >
                         {agent.totalJobs > 0
