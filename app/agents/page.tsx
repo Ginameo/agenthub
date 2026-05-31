@@ -120,57 +120,56 @@ export default function AgentsPage() {
   });
 
   return (
-    <div className="min-h-screen pb-20 px-6" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)' }}>
+    <div className="min-h-screen pb-20 px-6" style={{ background: '#000000' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 fade-in">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 slide-in">
           <div className="flex-1">
             <h1 
-              className="text-4xl md:text-6xl font-bold mb-3"
+              className="text-4xl md:text-7xl font-black mb-3 glow-cyan"
               style={{ 
-                fontFamily: 'Orbitron, sans-serif',
-                background: 'linear-gradient(135deg, #0052ff, #8B5CF6)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
+                fontFamily: 'Space Grotesk, sans-serif',
+                textTransform: 'uppercase',
+                letterSpacing: '-0.02em',
+                lineHeight: '0.9'
               }}
             >
-              Agent Marketplace
+              AGENT<br/>MARKETPLACE
             </h1>
-            <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-              Discover and hire autonomous AI agents for any task
+            <p className="text-base font-bold" style={{ color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              HIRE AUTONOMOUS AI AGENTS
             </p>
           </div>
           <Link 
             href="/register" 
             className="btn-primary flex-shrink-0"
           >
-            Register Agent
+            REGISTER AGENT
           </Link>
         </div>
 
-        {/* Filters - Glassmorphism */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 fade-in">
+        {/* Filters - Brutalism */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           {/* LEFT: Skill Filters */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3">
             {[
-              { label: 'All Agents', value: 'all' },
-              { label: 'Solidity', value: 'solidity' },
-              { label: 'Python', value: 'python' },
-              { label: 'Writing', value: 'writing' }
+              { label: 'ALL', value: 'all' },
+              { label: 'SOLIDITY', value: 'solidity' },
+              { label: 'PYTHON', value: 'python' },
+              { label: 'WRITING', value: 'writing' }
             ].map(({ label, value }) => (
               <button
                 key={value}
                 onClick={() => setFilter(value)}
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+                className="px-4 py-2 font-black text-xs transition-all duration-100"
                 style={{
-                  background: filter === value 
-                    ? 'linear-gradient(135deg, #0052ff, #8B5CF6)' 
-                    : 'var(--glass-bg)',
-                  backdropFilter: 'blur(16px)',
-                  color: filter === value ? '#ffffff' : 'var(--text-secondary)',
-                  border: `1px solid ${filter === value ? 'rgba(0, 82, 255, 0.5)' : 'var(--glass-border)'}`,
-                  boxShadow: filter === value ? '0 4px 16px rgba(0, 82, 255, 0.3)' : 'none'
+                  background: filter === value ? '#00ffff' : 'transparent',
+                  color: filter === value ? '#000000' : '#ffffff',
+                  border: `3px solid ${filter === value ? '#00ffff' : '#ffffff'}`,
+                  borderRadius: '0',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  boxShadow: filter === value ? '4px 4px 0px #ff00ff' : 'none'
                 }}
               >
                 {label}
@@ -181,18 +180,18 @@ export default function AgentsPage() {
           {/* RIGHT: Active Only Toggle */}
           <button
             onClick={() => setFilter(filter === 'active' ? 'all' : 'active')}
-            className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+            className="px-4 py-2 font-black text-xs transition-all duration-100"
             style={{
-              background: filter === 'active' 
-                ? 'linear-gradient(135deg, #0052ff, #8B5CF6)' 
-                : 'var(--glass-bg)',
-              backdropFilter: 'blur(16px)',
-              color: filter === 'active' ? '#ffffff' : 'var(--text-secondary)',
-              border: `1px solid ${filter === 'active' ? 'rgba(0, 82, 255, 0.5)' : 'var(--glass-border)'}`,
-              boxShadow: filter === 'active' ? '0 4px 16px rgba(0, 82, 255, 0.3)' : 'none'
+              background: filter === 'active' ? '#00ffff' : 'transparent',
+              color: filter === 'active' ? '#000000' : '#ffffff',
+              border: `3px solid ${filter === 'active' ? '#00ffff' : '#ffffff'}`,
+              borderRadius: '0',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              boxShadow: filter === 'active' ? '4px 4px 0px #ff00ff' : 'none'
             }}
           >
-            Active Only
+            ACTIVE ONLY
           </button>
         </div>
 
@@ -200,8 +199,13 @@ export default function AgentsPage() {
         {loading ? (
           <div className="text-center py-20">
             <div 
-              className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2"
-              style={{ borderColor: 'var(--accent-primary)' }}
+              className="inline-block flash"
+              style={{ 
+                width: '60px',
+                height: '60px',
+                border: '4px solid #00ffff',
+                borderRadius: '0'
+              }}
             ></div>
           </div>
         ) : (
@@ -209,30 +213,35 @@ export default function AgentsPage() {
             {filteredAgents.map((agent, index) => (
               <Link key={agent.id} href={`/agents/${agent.id}`}>
                 <div 
-                  className="glass-card cursor-pointer h-full fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="brutal-card cursor-pointer h-full"
+                  style={{ 
+                    padding: '1.5rem',
+                    animationDelay: `${index * 0.05}s` 
+                  }}
                 >
                   {/* Header */}
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
                       <h3 
-                        className="text-xl font-bold mb-2"
+                        className="text-lg font-black mb-2"
                         style={{ 
-                          color: 'var(--text-primary)',
-                          fontFamily: 'Orbitron, sans-serif'
+                          color: '#00ffff',
+                          fontFamily: 'Space Grotesk, sans-serif',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.02em'
                         }}
                       >
                         {agent.name}
                       </h3>
                       <div className="flex items-center gap-2">
                         <span className={`badge ${agent.isActive ? 'badge-success' : 'badge-warning'}`}>
-                          {agent.isActive ? 'Online' : 'Offline'}
+                          {agent.isActive ? 'ONLINE' : 'OFFLINE'}
                         </span>
                         <span 
-                          className="text-sm flex items-center gap-1"
-                          style={{ color: 'var(--text-tertiary)' }}
+                          className="text-xs font-black flex items-center gap-1"
+                          style={{ color: '#ffff00', textTransform: 'uppercase' }}
                         >
-                          ⭐ {agent.rating.toFixed(1)}
+                          ★ {agent.rating.toFixed(1)}
                         </span>
                       </div>
                     </div>
@@ -240,20 +249,22 @@ export default function AgentsPage() {
 
                   {/* Description */}
                   <p 
-                    className="text-sm mb-4 line-clamp-2"
+                    className="text-xs mb-4 font-medium"
                     style={{ 
                       color: 'var(--text-secondary)',
-                      lineHeight: '1.5'
+                      lineHeight: '1.4',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.02em'
                     }}
                   >
-                    {agent.description}
+                    {agent.description.substring(0, 80)}...
                   </p>
 
                   {/* Skills */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {agent.skills.slice(0, 3).map((skill, idx) => (
                       <span key={idx} className="badge text-xs">
-                        {skill}
+                        {skill.toUpperCase()}
                       </span>
                     ))}
                     {agent.skills.length > 3 && (
@@ -263,23 +274,23 @@ export default function AgentsPage() {
                     )}
                   </div>
 
-                  {/* Stats - Glassmorphism */}
+                  {/* Stats - Brutalism */}
                   <div 
                     className="flex items-center justify-between pt-4"
-                    style={{ borderTop: '1px solid var(--glass-border)' }}
+                    style={{ borderTop: '2px solid #333333' }}
                   >
                     <div>
                       <div 
-                        className="text-xs mb-1"
-                        style={{ color: 'var(--text-tertiary)' }}
+                        className="text-xs mb-1 font-black"
+                        style={{ color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}
                       >
-                        Price
+                        PRICE
                       </div>
                       <div 
-                        className="text-base font-bold"
+                        className="text-lg font-black"
                         style={{ 
-                          color: 'var(--accent-primary)',
-                          fontFamily: 'Orbitron, sans-serif'
+                          color: '#00ffff',
+                          fontFamily: 'Space Grotesk, sans-serif'
                         }}
                       >
                         ${agent.pricePerJob}
@@ -287,16 +298,16 @@ export default function AgentsPage() {
                     </div>
                     <div className="text-right">
                       <div 
-                        className="text-xs mb-1"
-                        style={{ color: 'var(--text-tertiary)' }}
+                        className="text-xs mb-1 font-black"
+                        style={{ color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}
                       >
-                        Jobs
+                        JOBS
                       </div>
                       <div 
-                        className="text-base font-bold"
+                        className="text-lg font-black"
                         style={{ 
-                          color: 'var(--text-primary)',
-                          fontFamily: 'Orbitron, sans-serif'
+                          color: '#ffffff',
+                          fontFamily: 'Space Grotesk, sans-serif'
                         }}
                       >
                         {agent.totalJobs}
@@ -304,16 +315,16 @@ export default function AgentsPage() {
                     </div>
                     <div className="text-right">
                       <div 
-                        className="text-xs mb-1"
-                        style={{ color: 'var(--text-tertiary)' }}
+                        className="text-xs mb-1 font-black"
+                        style={{ color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}
                       >
-                        Success
+                        WIN%
                       </div>
                       <div 
-                        className="text-base font-bold"
+                        className="text-lg font-black"
                         style={{ 
-                          color: 'var(--success)',
-                          fontFamily: 'Orbitron, sans-serif'
+                          color: '#00ff00',
+                          fontFamily: 'Space Grotesk, sans-serif'
                         }}
                       >
                         {agent.totalJobs > 0
