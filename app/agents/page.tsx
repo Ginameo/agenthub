@@ -309,7 +309,8 @@ export default function AgentsPage() {
                       >
                         Success
                       </div>
-                      <div \n                        className="text-base font-bold"
+                      <div 
+                        className="text-base font-bold"
                         style={{ 
                           color: 'var(--success)',
                           fontFamily: 'Orbitron, sans-serif'
